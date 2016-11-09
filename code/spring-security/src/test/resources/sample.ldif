@@ -1,0 +1,72 @@
+dn: ou=groups,dc=cern,dc=ch
+objectclass: top
+objectclass: organizationalUnit
+ou: groups
+
+dn: ou=subgroups,ou=groups,dc=cern,dc=ch
+objectclass: top
+objectclass: organizationalUnit
+ou: subgroups
+
+dn: ou=people,dc=cern,dc=ch
+objectclass: top
+objectclass: organizationalUnit
+ou: people
+
+dn: ou=others,dc=cern,dc=ch
+objectclass: top
+objectclass: organizationalUnit
+ou: others
+
+dn: uid=alice,ou=people,dc=cern,dc=ch
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Alice Smith
+sn: Alice
+uid: alice
+userPassword: {SHA}8L0lGwgzjCMNQg8zEG+vE6EsrOU=
+
+dn: uid=bob,ou=people,dc=cern,dc=ch
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Bob O'Brian
+sn: Bob
+uid: bob
+userPassword: bob123
+
+dn: uid=guest,ou=others,dc=cern,dc=ch
+objectclass: top
+objectclass: person
+objectclass: organizationalPerson
+objectclass: inetOrgPerson
+cn: Sir Anonymous
+sn: Anonymous
+uid: guest
+userPassword: guest
+
+
+dn: cn=developers,ou=groups,dc=cern,dc=ch
+objectclass: top
+objectclass: groupOfNames
+cn: developers
+ou: developer
+uniqueMember: uid=alice,ou=people,dc=cern,dc=ch
+uniqueMember: uid=bob,ou=people,dc=cern,dc=ch
+
+dn: cn=managers,ou=groups,dc=cern,dc=ch
+objectclass: top
+objectclass: groupOfNames
+cn: managers
+ou: manager
+uniqueMember: uid=alice,ou=people,dc=cern,dc=ch
+
+dn: cn=submanagers,ou=subgroups,ou=groups,dc=cern,dc=ch
+objectclass: top
+objectclass: groupOfNames
+cn: submanagers
+ou: submanager
+uniqueMember: uid=alice,ou=people,dc=cern,dc=ch
